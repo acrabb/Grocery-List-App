@@ -15,18 +15,23 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.database.sqlite.SQLiteDatabase;
 
 public class GroceryListAppActivity extends ListActivity {
     private ArrayList<List> lists = new ArrayList<List>();
+    ListDataHelper data;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.main);
         
-        lists.add(new List("Safeway"));
         this.setListAdapter(new MainListAdapter(this, lists));
+        
+        data = new ListDataHelper(this);
+        SQLiteDatabase readable = data.getReadableDatabase();
+        //NON BLOCKING POPUP!!
+        //DONT DO THIS!!!: data.addUser("Zach");
     }
     
     @Override
@@ -40,7 +45,6 @@ public class GroceryListAppActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item){
     	switch(item.getItemId()){
     		case R.id.add_list:
-//    			Toast.makeText(this, "RAWWWWWWRRR", Toast.LENGTH_LONG).show();
     			AlertDialog.Builder listNameAlert =
     				new AlertDialog.Builder(this);
     			listNameAlert.setTitle("New List");
@@ -53,18 +57,16 @@ public class GroceryListAppActivity extends ListActivity {
     			listNameAlert.setPositiveButton("OK",
     					new DialogInterface.OnClickListener() {
 					
+    				//OK BUTTON
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// ADD ITEM BUTTON
-						String value = input.getText().toString(); 
+						String value = input.getText().toString();
+						//ADD VALUE TO LIST
 						if (value != null && !value.equals("")){
 							Toast.makeText(GroceryListAppActivity.this, 
 								value, Toast.LENGTH_SHORT).show();
 						lists.add(new List(value));
 						}
-						
-						
-						
 					}
 				});
     			
