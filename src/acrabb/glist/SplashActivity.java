@@ -36,6 +36,9 @@ public class SplashActivity extends Activity {
                     // do nothing
                 } finally {
                     finish();
+                    SplashActivity.this.startActivity(new
+                    		Intent(SplashActivity.this,
+                    				GroceryListAppActivity.class));
                     SplashActivity.this.finish();
                     stop();
                 }

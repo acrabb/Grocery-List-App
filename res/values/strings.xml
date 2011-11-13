@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, GroceryListAppActivity!</string>
     <string name="app_name">Grocery List App</string>
+    <string name="list_name">List Name:</string>
 
 </resources>
