@@ -11,7 +11,7 @@ import android.os.Bundle;
 public class SplashActivity extends Activity {
     
     private boolean active = true;
-    private int splashTime = 1000; // time to display the splash screen in ms
+    private int splashTime = 5000; // time to display the splash screen in ms
 
     
     /** Called when the activity is first created. */

@@ -32,6 +32,8 @@ public class GroceryListAppActivity extends ListActivity {
         SQLiteDatabase readable = data.getReadableDatabase();
         //NON BLOCKING POPUP!!
         //DONT DO THIS!!!: data.addUser("Zach");
+//        data.addUser("Andre2");
+        lists.add(new List("Store!"));
     }
     
     @Override
@@ -65,7 +67,7 @@ public class GroceryListAppActivity extends ListActivity {
 						if (value != null && !value.equals("")){
 							Toast.makeText(GroceryListAppActivity.this, 
 								value, Toast.LENGTH_SHORT).show();
-						lists.add(new List(value));
+							lists.add(new List(value));
 						}
 					}
 				});

@@ -25,7 +25,6 @@ package acrabb.glist;
  */
 public class Person {
     private String name;
-
     
     
     /**

@@ -14,7 +14,7 @@ public class MainListAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<List> lists;
 	
-	
+
 	public MainListAdapter(Context context, ArrayList<List> lists){
 		this.context = context;
 		this.lists = lists;

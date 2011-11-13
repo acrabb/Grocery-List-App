@@ -23,8 +23,7 @@ public class ListItem {
     private float price;
     private int quantity;
     private ArrayList<Person> people;
-    
-    
+        
     
     /**
      * @param name
