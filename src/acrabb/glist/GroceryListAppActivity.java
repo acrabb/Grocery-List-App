@@ -4,25 +4,29 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
-public class GroceryListAppActivity extends Activity {
-    private ArrayList<ListItem> items = new ArrayList<ListItem>();
-    
+public class GroceryListAppActivity extends ListActivity {
+    private ArrayList<List> lists = new ArrayList<List>();
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        //setContentView(R.layout.main);
         
+        lists.add(new List("Safeway"));
+        this.setListAdapter(new MainListAdapter(this, lists));
     }
     
     @Override
@@ -51,10 +55,14 @@ public class GroceryListAppActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
+						// ADD ITEM BUTTON
 						String value = input.getText().toString(); 
-						Toast.makeText(GroceryListAppActivity.this, 
+						if (value != null && !value.equals("")){
+							Toast.makeText(GroceryListAppActivity.this, 
 								value, Toast.LENGTH_SHORT).show();
+						lists.add(new List(value));
+						}
+						
 						
 						
 					}

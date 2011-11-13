@@ -10,8 +10,7 @@
         android:text="@string/hello" />
 
     <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+        android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/lists_list_view">
         <!-- Preview: listitem=@android:layout/simple_list_item_2 -->
     </ListView>
 
